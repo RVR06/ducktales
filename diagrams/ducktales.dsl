@@ -81,7 +81,7 @@ workspace "Ducktales" "Architecture practice crew — VS Code Copilot agents sup
 				shape Robot
 			}
 			element "#ducktales" {
-				stroke #d86c37
+				stroke #02529C
 				icon ducktales.svg
 			}
 			element "#copilot" {

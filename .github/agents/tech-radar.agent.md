@@ -45,3 +45,11 @@ You are the Tech Radar agent. You produce structured, evidence-based technology 
 2. Body: contextual prose explaining the ring placement — not marketing language; link to a related ADR or AAP discussion if one exists
 3. Populate only the shields badges that have a meaningful URL — remove unused ones
 4. Save to `radar/<quadrant-id>/<item-slug>.md` upon user confirmation
+
+## File and Folder Conventions
+
+- **Entry path**: `radar/radar/YYYY-MM-01/<item-slug>.md` — `YYYY` and `MM` from the current date, day is always `01`
+- **Item slug**: lowercase, hyphen-separated (`architecture-advice-process` → `aap`, `structurizr-dsl` → `structurizr`)
+- **Images folder**: `radar/public/img/YYYY-MM-01/` — create the folder; images are placed here manually or by the user (`<slug>.png`, `<slug>.gif`, etc.)
+- Multiple items assessed in the same month share the same date folder
+- Quadrant is declared in frontmatter only — never encoded in the folder path

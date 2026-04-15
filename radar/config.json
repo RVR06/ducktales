@@ -1,0 +1,136 @@
+{
+  "basePath": "/",
+  "baseUrl": "https://ducktales.github.io",
+  "editUrl": "https://github.com/RVR06/ducktales",
+  "logoFile": "logo.svg",
+  "jsFile": "",
+  "toggles": {
+    "showChart": true,
+    "showTagFilter": true,
+    "showQuadrantList": true,
+    "showEmptyRings": false
+  },
+  "sections": ["radar", "tags", "list"],
+  "colors": {
+    "foreground": "#FFFFFF",
+    "background": "#1E1E22",
+    "highlight": "#02529C",
+    "content": "#fff",
+    "text": "#575757",
+    "link": "#bc6c25",
+    "border": "rgba(255, 255, 255, 0.1)",
+    "tag": "rgba(255, 255, 255, 0.1)"
+  },
+  "quadrants": [
+    {
+      "id": "staples",
+      "title": "Staples",
+      "description": "Building blocks to craft modern software.",
+      "color": "#7ab648"
+    },
+    {
+      "id": "patterns",
+      "title": "Methods & Patterns",
+      "description": "Structuring mindsets to support software development.",
+      "color": "#FF006E"
+    },
+    {
+      "id": "platforms-and-operations",
+      "title": "Platforms & Operations",
+      "description": "Technologies and services for managing and scaling applications.",
+      "color": "#4f9db8"
+    },
+    {
+      "id": "tools",
+      "title": "Tools",
+      "description": "From simple productivity enhancers to comprehensive project solutions, catering to various project needs.",
+      "color": "#fcc438"
+    }
+  ],
+  "rings": [
+    {
+      "id": "adopt",
+      "title": "Adopt",
+      "description": "",
+      "color": "#588157",
+      "radius": 0.5,
+      "strokeWidth": 5
+    },
+    {
+      "id": "trial",
+      "title": "Trial",
+      "description": "",
+      "color": "#457b9d",
+      "radius": 0.69,
+      "strokeWidth": 3
+    },
+    {
+      "id": "assess",
+      "title": "Assess",
+      "description": "",
+      "color": "#bc6c25",
+      "radius": 0.85,
+      "strokeWidth": 2
+    },
+    {
+      "id": "hold",
+      "title": "Hold",
+      "description": "",
+      "color": "#d62828",
+      "radius": 1,
+      "strokeWidth": 0.75
+    }
+  ],
+  "flags": {
+    "new": {
+      "color": "#c20a7b",
+      "title": "New",
+      "titleShort": "N",
+      "description": "New in this version"
+    },
+    "changed": {
+      "color": "#f5c400",
+      "title": "Changed",
+      "titleShort": "C",
+      "description": "Recently changed"
+    },
+    "default": {
+      "description": "Unchanged"
+    }
+  },
+  "chart": {
+    "size": 800,
+    "blipSize": 12
+  },
+  "social": [
+    {
+      "href": "https://www.linkedin.com/in/romainvasseur/",
+      "icon": "linkedIn"
+    },
+    {
+      "href": "https://github.com/RVR06",
+      "icon": "github"
+    },
+    {
+      "href": "https://x.com/archicionado",
+      "icon": "x"
+    }
+  ],
+  "imprint": "https://github.com/RVR06",
+  "labels": {
+    "title": "Duck Tales",
+    "imprint": "Legal Information",
+    "quadrant": "Quadrant",
+    "quadrantOverview": "Quadrant Overview",
+    "zoomIn": "Dive in",
+    "filterByTag": "Filter by Tag",
+    "footer": "©2026, Archicionado Inc. Unauthorized use, distribution or duplication is prohibited.",
+    "notUpdated": "This item has not been updated recently. Check its ring classification to assess its current relevance.",
+    "notFound": "404 - Page not found",
+    "pageAbout": "Walkthrough",
+    "pageOverview": "Glossary",
+    "pageSearch": "Search",
+    "searchPlaceholder": "What are you looking for?",
+    "metaDescription": ""
+  }
+}

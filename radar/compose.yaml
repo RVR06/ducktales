@@ -1,0 +1,8 @@
+services:
+  radar:
+    image: radar:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:80

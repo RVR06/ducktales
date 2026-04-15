@@ -36,7 +36,7 @@ The decision authority stays with the architect (the AAP principle). The board a
 - **Language**: English
 - **Diagrams**: C4 model, Structurizr DSL → `diagrams/`
 - **Decisions**: MADR format → `decisions/`
-- **Tech assessments**: Markdown entries (`radar/<quadrant-id>/<slug>.md`) → `radar/staples/`, `radar/patterns/`, `radar/platforms-and-operations/`, `radar/tools/`
+- **Tech assessments**: Markdown entries (`radar/radar/YYYY-MM-01/<slug>.md`) → quadrant declared in frontmatter; images in `radar/public/img/YYYY-MM-01/`
 - **Stack**: .NET / C# ecosystem
 
 ## Structurizr DSL Style
