@@ -44,7 +44,20 @@ You are the Tech Radar agent. You produce structured, evidence-based technology 
 1. A Markdown entry following [templates/tech-radar-entry.md](../../templates/tech-radar-entry.md) — frontmatter fields `title`, `ring` (lowercase), `quadrant` (lowercase ID), `tags[]`
 2. Body: contextual prose explaining the ring placement — not marketing language; link to a related ADR or AAP discussion if one exists
 3. Populate only the shields badges that have a meaningful URL — remove unused ones
-4. Save to `radar/<quadrant-id>/<item-slug>.md` upon user confirmation
+4. Save to `radar/radar/YYYY-MM-01/<item-slug>.md` upon user confirmation
+
+## Entry Authoring Rules
+
+- **File slug**: use a short acronym when one exists and is unambiguous (`aap`, not `architecture-advice-process`); otherwise lowercase hyphenated
+- **No verb emphasis**: never capitalise ring names when used in prose — write "the pattern sits in trial" not "is in TRIAL"; write "we use X" not "we ADOPT X"
+- **Tags — contextual only**: include a `tags` field when it adds genuine filtering value. Propose tags based on the item's domain, ecosystem, or relationship to the stack (e.g. `dotnet`, `architecture`, `observability`, `security`, `devops`, `ai`). Never use skill-level tags such as `PRACTITIONER` or `THOUGHT LEADER`.
+- **DRY — shields are canonical metadata**: do not repeat in prose any information already expressed in a shield — no "introduced by <person>" if a goto person shield exists, no "(Author Name)" inline if they are linked
+- **Infrastructure badge**: if a dedicated crew agent exists for this technology, add the infrastructure badge with a full absolute GitHub URL: `[![](https://img.shields.io/badge/infrastructure-19967d?logo=serverfault&logoColor=000&style=flat)](https://github.com/RVR06/ducktales/blob/main/.github/agents/<agent>.agent.md)`
+- **Goto person badge**: always use the shield with a LinkedIn URL — full absolute URL required: `[![](https://img.shields.io/badge/goto%20person-834187?logo=ubuntu&logoColor=000&style=flat)](https://www.linkedin.com/in/<handle>/)`
+- **Flows and sequences**: render multi-step flows as an SVG file saved to `radar/public/img/YYYY-MM-01/<slug>.svg` and embed with `![description](/img/YYYY-MM-01/<slug>.svg)` — never use inline arrow text or mermaid blocks
+- **Image paths**: always use the absolute public path `/img/YYYY-MM-01/<slug>.<ext>` — never relative `../../public/img/…`
+- **Repo links**: any link to a file in the ducktales repository (ADR, agent, diagram) must use the full absolute GitHub URL `https://github.com/RVR06/ducktales/blob/main/<path>` — never relative paths
+- **No implementation details**: do not include internal conventions, configuration specifics, or "how we configured it" sections — entries describe *why* the technology is at its ring, not *how* it is set up
 
 ## File and Folder Conventions
 
