@@ -1,0 +1,486 @@
+{
+  "configuration" : { },
+  "description" : "Architecture practice crew — VS Code Copilot agents supporting the Architecture Advice Process",
+  "documentation" : { },
+  "id" : 1,
+  "lastModifiedAgent" : "structurizr-ui",
+  "lastModifiedDate" : "2026-04-15T12:50:28Z",
+  "model" : {
+    "people" : [ {
+      "description" : "Enterprise architect, captain of the crew and sole decision authority (AAP)",
+      "id" : "35",
+      "name" : "Architect",
+      "properties" : {
+        "structurizr.dsl.identifier" : "architect"
+      },
+      "relationships" : [ {
+        "description" : "triggers",
+        "destinationId" : "4",
+        "id" : "36",
+        "sourceId" : "35",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Person"
+    } ],
+    "softwareSystems" : [ {
+      "description" : "VS Code Copilot extension backed by corporate Azure OpenAI — provides LLM inference to all agents",
+      "documentation" : { },
+      "id" : "1",
+      "name" : "Corporate Copilot",
+      "properties" : {
+        "structurizr.dsl.identifier" : "copilot"
+      },
+      "tags" : "Element,Software System,#external,#copilot"
+    }, {
+      "description" : "Renders and publishes Structurizr DSL diagrams produced by the C4 Modeler",
+      "documentation" : { },
+      "id" : "2",
+      "name" : "Structurizr",
+      "properties" : {
+        "structurizr.dsl.identifier" : "structurizr"
+      },
+      "tags" : "Element,Software System,#external,#structurizr"
+    }, {
+      "description" : "Version controls all artifacts produced in the practice",
+      "documentation" : { },
+      "id" : "3",
+      "name" : "Git",
+      "properties" : {
+        "structurizr.dsl.identifier" : "github"
+      },
+      "tags" : "Element,Software System,#external,#github,#db"
+    }, {
+      "containers" : [ {
+        "description" : "Always-on conventions injected into every agent: crew roster, DSL style rules, AAP flow",
+        "documentation" : { },
+        "id" : "5",
+        "name" : "Workspace Instructions",
+        "properties" : {
+          "structurizr.dsl.identifier" : "instructions"
+        },
+        "tags" : "Element,Container",
+        "technology" : "Markdown"
+      }, {
+        "description" : "MADR ADR template and tech radar entry template consumed by specialist agents",
+        "documentation" : { },
+        "id" : "6",
+        "name" : "Templates",
+        "properties" : {
+          "structurizr.dsl.identifier" : "templates"
+        },
+        "tags" : "Element,Container,#file",
+        "technology" : "Filesystem"
+      }, {
+        "description" : "decisions/, diagrams/, radar/ — persisted and version-controlled outputs",
+        "documentation" : { },
+        "id" : "7",
+        "name" : "Artifact Store",
+        "properties" : {
+          "structurizr.dsl.identifier" : "artifacts"
+        },
+        "relationships" : [ {
+          "description" : "version-controlled by",
+          "destinationId" : "3",
+          "id" : "8",
+          "sourceId" : "7",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,#file",
+        "technology" : "Filesystem"
+      }, {
+        "description" : "ARB review from the solution architecture lens: fitness, coherence, failure modes",
+        "documentation" : { },
+        "id" : "10",
+        "name" : "Solution Reviewer",
+        "properties" : {
+          "structurizr.dsl.identifier" : "solreviewer"
+        },
+        "tags" : "Element,Container,#agent",
+        "technology" : "Copilot Agent"
+      }, {
+        "description" : "ARB review from the data architecture lens: models, flows, ownership, compliance",
+        "documentation" : { },
+        "id" : "11",
+        "name" : "Data Reviewer",
+        "properties" : {
+          "structurizr.dsl.identifier" : "datareviewer"
+        },
+        "tags" : "Element,Container,#agent",
+        "technology" : "Copilot Agent"
+      }, {
+        "description" : "ARB review from the infrastructure lens: topology, reliability, security, operability",
+        "documentation" : { },
+        "id" : "12",
+        "name" : "Infrastructure Reviewer",
+        "properties" : {
+          "structurizr.dsl.identifier" : "infrareviewer"
+        },
+        "tags" : "Element,Container,#agent",
+        "technology" : "Copilot Agent"
+      }, {
+        "description" : "Gathers structured context and produces the Structured Brief before any specialist starts",
+        "documentation" : { },
+        "id" : "13",
+        "name" : "Discovery",
+        "properties" : {
+          "structurizr.dsl.identifier" : "discovery"
+        },
+        "tags" : "Element,Container,#agent",
+        "technology" : "Copilot Agent"
+      }, {
+        "description" : "Produces valid Structurizr DSL from a Structured Brief",
+        "documentation" : { },
+        "id" : "14",
+        "name" : "C4 Modeler",
+        "properties" : {
+          "structurizr.dsl.identifier" : "modeler"
+        },
+        "relationships" : [ {
+          "description" : "writes DSL diagrams to",
+          "destinationId" : "7",
+          "id" : "15",
+          "sourceId" : "14",
+          "tags" : "Relationship"
+        }, {
+          "description" : "renders diagrams via",
+          "destinationId" : "2",
+          "id" : "16",
+          "sourceId" : "14",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,#agent",
+        "technology" : "Copilot Agent"
+      }, {
+        "description" : "Writes MADR-format Architecture Decision Records, sequentially numbered",
+        "documentation" : { },
+        "id" : "18",
+        "name" : "ADR Writer",
+        "properties" : {
+          "structurizr.dsl.identifier" : "adrwriter"
+        },
+        "relationships" : [ {
+          "description" : "writes ADRs to",
+          "destinationId" : "7",
+          "id" : "19",
+          "sourceId" : "18",
+          "tags" : "Relationship"
+        }, {
+          "description" : "reads ADR template from",
+          "destinationId" : "6",
+          "id" : "20",
+          "sourceId" : "18",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,#agent",
+        "technology" : "Copilot Agent"
+      }, {
+        "description" : "Assesses technologies and places them in a quadrant and ring",
+        "documentation" : { },
+        "id" : "21",
+        "name" : "Tech Radar",
+        "properties" : {
+          "structurizr.dsl.identifier" : "radar"
+        },
+        "relationships" : [ {
+          "description" : "writes radar entries to",
+          "destinationId" : "7",
+          "id" : "22",
+          "sourceId" : "21",
+          "tags" : "Relationship"
+        }, {
+          "description" : "reads radar entry template from",
+          "destinationId" : "6",
+          "id" : "23",
+          "sourceId" : "21",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,#agent",
+        "technology" : "Copilot Agent"
+      }, {
+        "description" : "Translates technical artifacts into audience-appropriate stakeholder communication",
+        "documentation" : { },
+        "id" : "24",
+        "name" : "Communicator",
+        "properties" : {
+          "structurizr.dsl.identifier" : "communicator"
+        },
+        "relationships" : [ {
+          "description" : "reads source artifacts from and writes stakeholder outputs to",
+          "destinationId" : "7",
+          "id" : "25",
+          "sourceId" : "24",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,#agent",
+        "technology" : "Copilot Agent"
+      }, {
+        "description" : "Orchestrates three specialist reviewers in parallel and synthesises a GO/NO-GO board decision",
+        "documentation" : { },
+        "id" : "26",
+        "name" : "ARB Chair",
+        "properties" : {
+          "structurizr.dsl.identifier" : "arbchair"
+        },
+        "relationships" : [ {
+          "description" : "orchestrates solution review via",
+          "destinationId" : "10",
+          "id" : "27",
+          "sourceId" : "26",
+          "tags" : "Relationship"
+        }, {
+          "description" : "orchestrates data review via",
+          "destinationId" : "11",
+          "id" : "28",
+          "sourceId" : "26",
+          "tags" : "Relationship"
+        }, {
+          "description" : "orchestrates infrastructure review via",
+          "destinationId" : "12",
+          "id" : "29",
+          "sourceId" : "26",
+          "tags" : "Relationship"
+        }, {
+          "description" : "writes board decision to",
+          "destinationId" : "7",
+          "id" : "30",
+          "sourceId" : "26",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,#agent",
+        "technology" : "Copilot Agent"
+      }, {
+        "description" : "Orchestrates full AAP workflows and routes requests to specialist agents",
+        "documentation" : { },
+        "id" : "31",
+        "name" : "Captain",
+        "properties" : {
+          "structurizr.dsl.identifier" : "captain"
+        },
+        "relationships" : [ {
+          "description" : "reads crew conventions from",
+          "destinationId" : "5",
+          "id" : "32",
+          "sourceId" : "31",
+          "tags" : "Relationship"
+        }, {
+          "description" : "triggers review board via",
+          "destinationId" : "26",
+          "id" : "33",
+          "sourceId" : "31",
+          "tags" : "Relationship"
+        } ],
+        "tags" : "Element,Container,#agent",
+        "technology" : "Copilot Agent"
+      } ],
+      "description" : "Architecture practice tooling — Copilot agents, templates, and persisted artifacts",
+      "documentation" : { },
+      "id" : "4",
+      "name" : "Ducktales",
+      "properties" : {
+        "structurizr.dsl.identifier" : "ducktales"
+      },
+      "relationships" : [ {
+        "description" : "version-controlled by",
+        "destinationId" : "3",
+        "id" : "9",
+        "linkedRelationshipId" : "8",
+        "sourceId" : "4"
+      }, {
+        "description" : "renders diagrams via",
+        "destinationId" : "2",
+        "id" : "17",
+        "linkedRelationshipId" : "16",
+        "sourceId" : "4"
+      }, {
+        "description" : "sends prompts to",
+        "destinationId" : "1",
+        "id" : "34",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Software System,#ducktales"
+    } ]
+  },
+  "name" : "Ducktales",
+  "properties" : {
+    "structurizr.inspection.info" : "0",
+    "structurizr.inspection.ignore" : "0",
+    "structurizr.inspection.error" : "22",
+    "structurizr.inspection.warning" : "0"
+  },
+  "views" : {
+    "configuration" : {
+      "branding" : { },
+      "lastSavedView" : "C4_1",
+      "metadataSymbols" : "SquareBrackets",
+      "properties" : {
+        "structurizr.sort" : "created"
+      },
+      "styles" : {
+        "elements" : [ {
+          "shape" : "Robot",
+          "tag" : "#agent"
+        }, {
+          "stroke" : "#0d7377",
+          "tag" : "#copilot"
+        }, {
+          "icon" : "data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UGhvZW5peCBGcmFtZXdvcms8L3RpdGxlPjxwYXRoIGQ9Im05LjAxMiAxNS4yNDEtLjE4OC0uMDM2Yy0xLjM0LS4yNDgtMi4xODYtMS4wNi0yLjU4OC0yLjMzNC0uMjUtLjc5NC4yMDQtMS4zOCAxLjAzOC0xLjQxNi42ODItLjAzMiAxLjE1LjM2IDEuNTYyLjgxNi41MzIuNTg4IDEuMDIgMS4yMTYgMS41NDIgMS44MTQuNzU0Ljg2IDEuNjQgMS40MTIgMi44NTQgMS4yNGE1LjQwNCA1LjQwNCAwIDAgMCAyLjg2LTEuMzA4Yy4xMjQtLjEwOC4yNi0uMi4zOTItLjMwMmwtLjA4NC0uMDk4YTYuMDM0IDYuMDM0IDAgMCAxLTIuMTIuMjUyYy0xLjA5Mi0uMDU0LTIuMTMyLS4yODItMy4wNjQtLjg4Mi0uODQ4LS41NDgtMS40NzYtMS4yOC0xLjc3NC0yLjI2LS4yNC0uNzkuMjUyLTEuMzQ0IDEuMDcyLTEuMjMuMzEzLjA0OS42MDYuMTg3Ljg0Mi4zOTguMi4xNjguMzkuMzQ2LjU5NC41MS45NTguNzcgMi4yOTQuODEyIDMuNTA4LS4wMjItMS45OTYtLjAxLTMuMzU0LTEuMTA4LTQuNTQ4LTIuNS0uNDY2LS41NDQtLjkyMi0xLjEtMS40LTEuNjM2LS45Mi0xLjAzOC0xLjk0NC0xLjk1Mi0zLjM0Ni0yLjI2NC0xLjc5LS4zOTgtMy41MTgtLjEzNi01LjE3Ni42MjJBNC4yMTQgNC4yMTQgMCAwIDAgMCA1LjIxN2guMzUyYy44MzYtLjAyMiAxLjQ2NC4zNSAxLjkxNiAxLjAzNC4zMjguNDk4LjQ4MiAxLjA2LjYgMS42NC4xNzYuODYuMDg2IDEuNzM0LjE4OCAyLjU5OC4yNiAyLjIyIDEuMzk0IDMuNzY4IDMuNTA2IDQuNTYuNzc0LjI5MiAxLjU2OC4zOSAyLjQ1LjE5di4wMDJ6TTMuNjc0IDUuMTEzYy0uMzM0LjA4NC0uNi0uMDUtLjg3NC0uMzI4LjQ3LS4xMTguODg2LS4xNjQgMS4zMzItLjE4YS41NjIuNTYyIDAgMCAxLS40NTguNTA4em0xMC45MzggMTIuOTZjLS4wMy0uMjEyLS4yMTItLjMwNi0uMzU2LS40Mi0uNjM0LS40OTItMS4zNzgtLjY2OC0yLjE2NC0uNjgyYTQuMDggNC4wOCAwIDAgMS0xLjM3OC0uMjA4Yy0uMjA0LS4wNzYtLjQzLS4xNzQtLjQyNi0uNDM2LjAwNi0uMjY2LjIzOC0uMzQuNDQ4LS40MDQuMTc0LS4wNTIuMzUyLS4wODQuNTQ4LS4xMy0uNS0uMzItLjk4OC0uMzY0LTEuNjM2LS4xMDItMS4wMjQuNDEtMi4wMzIuMzYtMy4wNTItLjAwNi0uNTc0LS4yMDgtMS4wODYtLjUzNC0xLjYxOC0uODI0bC0uMDI2LjAyYy40NC43MjIgMS4wMzggMS4zMDQgMS43MSAxLjggMS4yOTYuOTYgMi43MTIgMS41MyA0LjM3IDEuMjc2YTIyLjggMjIuOCAwIDAgMSAxLjYxNC0uMTljLjY3Ni0uMDU0IDEuMzIuMTM2IDEuOTY2LjMwOHYtLjAwMnptLTMuMTI0LTEwLjM3Yy0uMDM2LS4wMjYtLjA3LS4wOS0uMTQ0LS4wMjRhNS4yNTggNS4yNTggMCAwIDAgMi4yODQgMS43NzZjMS40ODguNjA0IDMgLjcwOCA0LjU0NC4xNzQgMS4yLS40MTQgMi4wNi0uMDEgMi41MDggMS4xNTYuMDY2LTEuMzUyLS43My0yLjMzOC0xLjk5Ni0yLjUzLS43MTItLjExLTEuMzcuMTI4LTIuMDM4LjMyLTEuODU2LjU0LTMuNTg0LjI3NC01LjE2LS44NzJoLjAwMnptOS4yNTYgNS4yNzIuNzI2LjA2NGMtLjU0Ni0uNDgtMS4yMTItLjUyLTEuODg4LS40OC0xLjAyNi4wNTgtMS43NjYuNjUtMi40NCAxLjM1Ni0uNTk0LjYyNC0xLjEzIDEuMzI0LTIuMDE2IDEuNTc0bC4wMi4wNGMuMTIuMDAyLjI0LjAwOC4zNi4wMDIgMS4yODgtLjA1OCAyLjUtLjMzIDMuNDY0LTEuMjY0LjMwNi0uMjk0LjU3Ni0uNjIuODctLjkyNi4yMjYtLjI1OC41NjItLjM5NC45MDQtLjM2NnptLTIuOTkyLTEuNTk2Yy0uOTYuMDg0LTEuNzk0LjQ4LTIuNTggMS4wMDYtLjYwMi40MDQtMS4yNDguNTk0LTEuOTcyLjQ2OC0uMTI4LS4wMjItLjI1OC0uMDQtLjM4NC0uMDU4bC0uMDA2LjA1NGMuMDQ2LjAyNC4wOTIuMDUuMTQuMDcuMTIuMDQ4LjI0LjEwNi4zNjQuMTM2IDEuMzk2LjMzIDIuNzMyLjE2IDMuOTM2LS42MTguNzYtLjQ5IDEuNTQ2LS41ODIgMi4zOTgtLjQ1Ni4wODYuMDE0LjE3Mi4wMjguMjU4LjAzNi4wOC4wMDguMTY0LjA4OC4yNzIgMGEzLjQ1NCAzLjQ1NCAwIDAgMC0yLjQyNi0uNjM4em0tMy40MzQtMy4yNmEyLjY4IDIuNjggMCAwIDAgMS41MzQtLjM2NGMtLjE1NC4wMTQtLjIyLjAxNC0uMjgyLjAyNmEyLjI5NiAyLjI5NiAwIDAgMS0xLjk2LS40NzJsLS42NDYtLjVjLS44NTYtLjY1Mi0xLjgzNi0uODcyLTIuOTEtLjg1Mi4wMTguMDUyLjAyLjA4OC4wMzguMTA2IDEuMTY4IDEuMTggMi41MiAxLjk5NiA0LjIyNiAyLjA1NHYuMDAyem04LjQ1MiA2LjA2Yy0uNzI0LS43Mi0xLjY5NC0uODEtMi41OS0uMTg2LjU5NC4wMjggMS4wNC4yMTYgMS40LjU5Mi4xMjguMTM0LjI2Mi4yNi40MDQuMzc4LjU0OC40NCAxLjQ3NC40NiAyLjAxNi4wNTItLjYzNi0uMjQ4LS42MzYtLjI0OC0xLjIzLS44Mzh2LjAwMnptLTcuMTk4IDUuNDg2Yy0uNjM0LTEuMTgtMS43LTEuNDQ4LTIuOTM2LTEuMzY4LjM2NC4xLjcwOC4yNiAxLjAyLjQ3NC4yODYuMi41MjYuNDQ4Ljc2NC43MDIuNDcyLjUwNCAxLjIwOC44MTIgMS42OTYuNzA4LS4yMjQtLjE0LS41NDYtLjUxNC0uNTQ2LS41MTRoLS4wMTJsLjAwOC4wMDYuMDA0LjAxOGMuMDA0LS4wMi4wMDYtLjAxNi4wMDgtLjAxaC4wMmwtLjAyOC0uMDEydi4wMWwuMDEuMDA0cy4xMTQuMjA4LS4wMDgtLjAxOHoiLz48L3N2Zz4=",
+          "stroke" : "#d86c37",
+          "tag" : "#ducktales"
+        }, {
+          "stroke" : "#f4511e",
+          "tag" : "#git"
+        }, {
+          "stroke" : "#7c3aed",
+          "tag" : "#structurizr"
+        } ]
+      },
+      "terminology" : { },
+      "themes" : [ "https://raw.githubusercontent.com/rvr06/cornifer-contrib/main/themes/topology/theme.json", "https://raw.githubusercontent.com/rvr06/cornifer-contrib/main/themes/heraldry2/theme.json" ]
+    },
+    "containerViews" : [ {
+      "description" : "Containers — Ducktales architecture practice crew",
+      "dimensions" : {
+        "height" : 2715,
+        "width" : 3774
+      },
+      "elements" : [ {
+        "id" : "2",
+        "x" : 3124,
+        "y" : 2217
+      }, {
+        "id" : "3",
+        "x" : 2368,
+        "y" : 2217
+      }, {
+        "id" : "5",
+        "x" : 220,
+        "y" : 734
+      }, {
+        "id" : "6",
+        "x" : 2719,
+        "y" : 212
+      }, {
+        "id" : "7",
+        "x" : 2368,
+        "y" : 1525
+      }, {
+        "id" : "10",
+        "x" : 1688,
+        "y" : 1475
+      }, {
+        "id" : "11",
+        "x" : 245,
+        "y" : 1475
+      }, {
+        "id" : "12",
+        "x" : 978,
+        "y" : 1475
+      }, {
+        "id" : "13",
+        "x" : 1688,
+        "y" : 162
+      }, {
+        "id" : "14",
+        "x" : 3149,
+        "y" : 1475
+      }, {
+        "id" : "18",
+        "x" : 3149,
+        "y" : 775
+      }, {
+        "id" : "21",
+        "x" : 2396,
+        "y" : 775
+      }, {
+        "id" : "24",
+        "x" : 1688,
+        "y" : 775
+      }, {
+        "id" : "26",
+        "x" : 978,
+        "y" : 775
+      }, {
+        "id" : "31",
+        "x" : 978,
+        "y" : 162
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "C4_2",
+      "name" : "Container View: Ducktales",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "15"
+      }, {
+        "id" : "16"
+      }, {
+        "id" : "19"
+      }, {
+        "id" : "20"
+      }, {
+        "id" : "22"
+      }, {
+        "id" : "23"
+      }, {
+        "id" : "25"
+      }, {
+        "id" : "27"
+      }, {
+        "id" : "28"
+      }, {
+        "id" : "29"
+      }, {
+        "id" : "30"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "8"
+      } ],
+      "softwareSystemId" : "4"
+    } ],
+    "systemContextViews" : [ {
+      "description" : "System context — Ducktales architecture practice",
+      "dimensions" : {
+        "height" : 1900,
+        "width" : 2350
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 1699,
+        "y" : 142
+      }, {
+        "id" : "2",
+        "x" : 1699,
+        "y" : 742
+      }, {
+        "id" : "3",
+        "x" : 1699,
+        "y" : 1342
+      }, {
+        "id" : "4",
+        "x" : 949,
+        "y" : 742
+      }, {
+        "id" : "35",
+        "x" : 199,
+        "y" : 692
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "C4_1",
+      "name" : "System Context View: Ducktales",
+      "order" : 1,
+      "relationships" : [ {
+        "id" : "17"
+      }, {
+        "id" : "34"
+      }, {
+        "id" : "36"
+      }, {
+        "id" : "9"
+      } ],
+      "softwareSystemId" : "4"
+    } ]
+  }
+}
