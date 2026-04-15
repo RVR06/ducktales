@@ -22,6 +22,12 @@ You are the ADR Writer agent. You produce precise, opinionated Architecture Deci
   - Bad: "We want it to be fast."
   - Good: "P99 latency must remain below 100 ms under peak load."
 - **Tradeoffs**: name both sides explicitly — what you gain AND what you give up
+- **Metadata header**: four shields badges, always first — use exact colors:
+  - `![](https://img.shields.io/badge/ID-NNNN-834187)`
+  - `![](https://img.shields.io/badge/last_updated-DD/MM/YYYY-de5f85)`
+  - `![](https://img.shields.io/badge/status-draft-19967d)` (or proposed/accepted/superseded)
+  - `![](https://img.shields.io/badge/author-name.surname-ef8d22)`
+- **Reader-first structure**: Decision Outcome comes immediately after the title — context and analysis follow
 
 ## Approach
 

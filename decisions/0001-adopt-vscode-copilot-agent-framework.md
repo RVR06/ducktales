@@ -1,8 +1,30 @@
 # ADR-0001: Adopt VS Code Copilot Agent Framework as Architecture Practice Platform
 
-Date: 2026-04-15
-Status: Accepted
-Deciders: Architecture Practice Lead
+![](https://img.shields.io/badge/ID-0001-834187)
+![](https://img.shields.io/badge/last_updated-04/15/2026-de5f85)
+![](https://img.shields.io/badge/status-accepted-19967d)
+![](https://img.shields.io/badge/author-romain.vasseur-ef8d22)
+
+## Decision Outcome
+
+**Chosen option**: Option 1 — VS Code Copilot `.agent.md` files
+
+**Rationale**: This option delivers a working, specialised crew immediately with zero code and zero infrastructure. It operates entirely within the corporate Copilot boundary. The `.agent.md` declarative format maps directly to the crew manifest and supports subagent delegation, making Phase 2 chaining natural. Options 2 and 3 require upfront investment that is premature before the crew's value is validated. Option 4 lacks the routing and role isolation that make the Architecture Advice Process operable as an agent workflow.
+
+### Positive Consequences
+
+- Full crew operational in Phase 1 with no code
+- Agents are version-controlled, team-shareable, and discoverable via the agent picker
+- Personas and constraints are explicit and auditable in source files
+- .NET / Semantic Kernel path (Phase 3) remains available when automation is warranted — the `.agent.md` files become the specification for KernelFunction wrappers
+
+### Accepted Tradeoffs
+
+- Agent orchestration in Phase 1 is manual — the architect sequences agents; no automated workflow runner
+- Parallel reviewer invocation in `@arb-chair` depends on Copilot's subagent dispatch capability, which is model-dependent
+- No persistent memory between sessions in Phase 1 — context must be re-supplied or referenced by file
+
+---
 
 ## Context and Problem Statement
 
@@ -26,26 +48,7 @@ As the practice grows in scope and rigour — adopting Andrew Harmel-Law's Archi
 3. **Semantic Kernel C# host (standalone)** — code-first, .NET native, but requires upfront development investment before any agent can run
 4. **Prompt library only** — curated `.prompt.md` files without agent routing, no orchestration
 
-## Decision Outcome
-
-**Chosen option**: Option 1 — VS Code Copilot `.agent.md` files
-
-**Rationale**: This option delivers a working, specialised crew immediately with zero code and zero infrastructure. It operates entirely within the corporate Copilot boundary. The `.agent.md` declarative format maps directly to the crew manifest and supports subagent delegation, making Phase 2 chaining natural. Options 2 and 3 require upfront investment that is premature before the crew's value is validated. Option 4 lacks the routing and role isolation that make the Architecture Advice Process operable as an agent workflow.
-
-### Positive Consequences
-
-- Full crew operational in Phase 1 with no code
-- Agents are version-controlled, team-shareable, and discoverable via the agent picker
-- Personas and constraints are explicit and auditable in source files
-- .NET / Semantic Kernel path (Phase 3) remains available when automation is warranted — the `.agent.md` files become the specification for KernelFunction wrappers
-
-### Negative Consequences (Accepted Tradeoffs)
-
-- Agent orchestration in Phase 1 is manual — the architect sequences agents; no automated workflow runner
-- Parallel reviewer invocation in `@arb-chair` depends on Copilot's subagent dispatch capability, which is model-dependent
-- No persistent memory between sessions in Phase 1 — context must be re-supplied or referenced by file
-
-## Pros and Cons of the Options
+## Options Analysis
 
 ### Option 1: VS Code Copilot `.agent.md` files
 

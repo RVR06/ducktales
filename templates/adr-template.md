@@ -1,8 +1,25 @@
 # ADR-NNNN: <Title in imperative mood — "Use X for Y", "Adopt X as Y">
 
-Date: YYYY-MM-DD
-Status: Proposed <!-- Proposed | Accepted | Deprecated | Superseded by [ADR-NNNN] -->
-Deciders: <!-- Names or roles of people consulted (Architecture Advice Process) -->
+![](https://img.shields.io/badge/ID-NNNN-834187)
+![](https://img.shields.io/badge/last_updated-MM/DD/YYYY-de5f85)
+![](https://img.shields.io/badge/status-draft-19967d) <!-- draft | proposed | accepted | superseded -->
+![](https://img.shields.io/badge/author-name.surname-ef8d22)
+
+## Decision Outcome
+
+**Chosen option**: Option N — *<name>*
+
+**Rationale**: <!-- One paragraph explaining why this option wins against the criteria above. -->
+
+### Positive Consequences
+
+- <!-- What improves as a result? -->
+
+### Accepted Tradeoffs
+
+- <!-- What gets worse, or what risk do we accept? -->
+
+---
 
 ## Context and Problem Statement
 
@@ -30,21 +47,7 @@ Good: "P99 latency must remain below 100 ms under peak load."
 2. <!-- Option B: brief name -->
 3. <!-- Option C: brief name — include "do nothing" when relevant -->
 
-## Decision Outcome
-
-**Chosen option**: Option N — *<name>*
-
-**Rationale**: <!-- One paragraph explaining why this option wins against the criteria above. -->
-
-### Positive Consequences
-
-- <!-- What improves as a result? -->
-
-### Negative Consequences (Accepted Tradeoffs)
-
-- <!-- What gets worse, or what risk do we accept? -->
-
-## Pros and Cons of the Options
+## Options Analysis
 
 ### Option A: <name>
 
