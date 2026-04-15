@@ -78,6 +78,8 @@ crew:
     phase: 1
     role: specialist
     tools: [read, edit, web]
+    quadrants: [staples, patterns, platforms-and-operations, tools]
+    rings: [adopt, trial, assess, hold]
     description: Assesses technologies and places them in a radar quadrant and ring
 
   - id: review-solution
