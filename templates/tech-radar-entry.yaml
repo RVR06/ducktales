@@ -1,0 +1,46 @@
+# Tech Radar Entry Template
+# Copy this file to radar/<quadrant>/<item-name>.yaml and fill in all fields.
+# Quadrants: techniques | platforms | tools | languages-frameworks
+
+name: ""                    # Display name of the technology / tool / technique
+quadrant: ""                # techniques | platforms | tools | languages-frameworks
+ring: ""                    # ADOPT | TRIAL | ASSESS | HOLD
+isNew: true                 # true = first appearance on radar; false = moved from previous ring
+previousRing: ""            # Only if isNew: false — ring this item was in previously
+date: ""                    # YYYY-MM-DD of this assessment
+
+# One-line summary shown on the radar blip
+blip: ""
+
+# Detailed assessment
+description: |
+  # What it is
+  # One or two sentences explaining what this technology is and what problem it solves.
+
+  # Why this ring
+  # Explain the evidence and reasoning that led to the ring placement.
+  # Reference concrete usage, POCs, production experience, or community signals.
+
+  # Context
+  # What is specific to our team/organisation that makes this more or less relevant?
+
+# Specific actions for the team
+recommendation: ""          # e.g., "Use on all new microservices replacing X", "Spike with Team A Q3"
+
+# Known adoption in the team/organisation
+adoption:
+  internal: ""              # Current usage internally (none / experimental / limited / widespread)
+  industry: ""              # Industry maturity signal (niche / emerging / mainstream / declining)
+
+# Key risks to monitor
+risks:
+  - ""
+
+# References
+links:
+  - label: ""
+    url: ""
+
+# Who assessed this
+assessors:
+  - ""

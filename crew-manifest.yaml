@@ -1,0 +1,147 @@
+# Architecture Practice Crew Manifest
+# Ducktales workspace — April 2026
+#
+# This file is the declarative charter of the architecture crew.
+# It documents the crew, their responsibilities, and the journey to automation.
+# In Phase 3+, this manifest will be consumed by a Semantic Kernel host to wire agents programmatically.
+
+practice:
+  name: Architecture Practice
+  methodology: Architecture Advice Process
+  methodology_ref: https://medium.com/nick-tune-tech-strategy-blog/architectural-advice-process-d4d06e2a40d
+  author: Andrew Harmel-Law
+  stack: dotnet
+  workspace: ducktales
+
+# ─── Journey Phases ────────────────────────────────────────────────────────────
+#
+# Phase 1 — Crew Foundation (now)
+#   Everything runs inside VS Code Copilot Chat via .agent.md files.
+#   No code required. Invoke agents from the Chat agent picker (@agent-name).
+#   The user is the captain: they orchestrate by choosing which agent to invoke.
+#
+# Phase 2 — Workflow Patterns (next week)
+#   Learn agent chaining: @captain dispatches to specialists in sequence.
+#   Introduce structured outputs: agents produce YAML/DSL that feed the next.
+#   Add the full AAP loop: discovery → draft → review → decide → communicate.
+#
+# Phase 3 — Semantic Kernel Automation (C# host)
+#   Build a .NET console host using Microsoft.SemanticKernel.
+#   Each .agent.md becomes a KernelFunction or ChatCompletionAgent.
+#   The captain becomes an AgentGroupChat or sequential orchestration.
+#   The corporate Copilot endpoint (Azure OpenAI on your tenant) is the LLM backend.
+#   No external services needed — SK connects to your existing corporate endpoint.
+#
+# Phase 4 — Tools and Memory
+#   Agents gain tools: file read/write, diagram rendering, ADR indexing.
+#   Add a lightweight memory layer (e.g., a local vector store or JSON index).
+#   Agents become truly autonomous for bounded, well-defined tasks.
+#
+# ───────────────────────────────────────────────────────────────────────────────
+
+crew:
+  - id: captain
+    name: Captain
+    file: .github/agents/captain.agent.md
+    phase: 1
+    role: orchestrator
+    tools: [read, search, agent]
+    description: Routes requests to the right crew members, sequences multi-agent workflows
+
+  - id: discovery
+    name: Discovery
+    file: .github/agents/discovery.agent.md
+    phase: 1
+    role: context-gathering
+    tools: [read, search]
+    description: Produces a structured brief before any specialist starts work
+
+  - id: c4-modeler
+    name: C4 Modeler
+    file: .github/agents/c4-modeler.agent.md
+    phase: 1
+    role: specialist
+    tools: [read, edit, search]
+    description: Produces Structurizr DSL from a structured brief
+
+  - id: adr-writer
+    name: ADR Writer
+    file: .github/agents/adr-writer.agent.md
+    phase: 1
+    role: specialist
+    tools: [read, edit]
+    description: Writes MADR-format Architecture Decision Records
+
+  - id: tech-radar
+    name: Tech Radar
+    file: .github/agents/tech-radar.agent.md
+    phase: 1
+    role: specialist
+    tools: [read, edit, web]
+    description: Assesses technologies and places them in a radar quadrant and ring
+
+  - id: review-solution
+    name: Solution Reviewer
+    file: .github/agents/review-solution.agent.md
+    phase: 1
+    role: arb-reviewer
+    tools: [read, search]
+    description: ARB review from solution architecture lens (fitness for purpose, design integrity)
+
+  - id: review-data
+    name: Data Reviewer
+    file: .github/agents/review-data.agent.md
+    phase: 1
+    role: arb-reviewer
+    tools: [read, search]
+    description: ARB review from data architecture lens (models, flows, ownership, compliance)
+
+  - id: review-infra
+    name: Infrastructure Reviewer
+    file: .github/agents/review-infra.agent.md
+    phase: 1
+    role: arb-reviewer
+    tools: [read, search]
+    description: ARB review from infrastructure lens (topology, reliability, operability, cost)
+
+  - id: arb-chair
+    name: ARB Chair
+    file: .github/agents/arb-chair.agent.md
+    phase: 1
+    role: orchestrator
+    tools: [read, search, agent]
+    description: Runs full Architecture Review Board — orchestrates 3 reviewers, synthesizes GO/NO-GO decision
+
+  - id: communicator
+    name: Communicator
+    file: .github/agents/communicator.agent.md
+    phase: 1
+    role: specialist
+    tools: [read, edit]
+    description: Translates technical artifacts into audience-appropriate stakeholder communication
+
+workflows:
+  - id: design
+    name: Design a System
+    sequence: [discovery, c4-modeler]
+    description: From brief to C4 diagram
+
+  - id: decide
+    name: Document a Decision
+    sequence: [discovery, adr-writer]
+    description: From discussion to ADR
+
+  - id: evaluate
+    name: Evaluate a Technology
+    sequence: [discovery, tech-radar]
+    description: From question to radar entry
+
+  - id: review
+    name: Architecture Review Board
+    sequence: [discovery, arb-chair, adr-writer, communicator]
+    description: Full AAP loop — advice, decision, communication
+
+  - id: full-aap
+    name: Full Architecture Advice Process
+    sequence: [discovery, c4-modeler, arb-chair, adr-writer, communicator]
+    description: Complete end-to-end cycle from brief to published decision
