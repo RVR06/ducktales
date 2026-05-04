@@ -122,6 +122,14 @@ crew:
     tools: [read, edit]
     description: Translates technical artifacts into audience-appropriate stakeholder communication
 
+  - id: writer
+    name: Writer
+    file: .github/agents/writer.agent.md
+    phase: 1
+    role: specialist
+    tools: [read, edit]
+    description: Shapes and reviews blog posts, LinkedIn posts, and external written communication — Shape or Review mode
+
 workflows:
   - id: design
     name: Design a System

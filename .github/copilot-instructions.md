@@ -16,6 +16,7 @@ This workspace is the home of an architecture practice built on the **Architectu
 | `@review-infra` | ARB specialist — infrastructure lens |
 | `@arb-chair` | Orchestrates the full Architecture Review Board — synthesizes a GO/NO-GO decision |
 | `@communicator` | Translates technical artifacts into stakeholder-facing communication |
+| `@writer` | Shapes and reviews blog posts, LinkedIn posts, and external written communication |
 
 ## Architecture Advice Process Flow
 
