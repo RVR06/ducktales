@@ -10,3 +10,33 @@
 **/aoe_technology_radar.iml
 **/build
 **/techradar
+
+# When cloned to %APPDATA%\Code\User\, ignore everything VS Code writes there.
+# Whitelist only repo-tracked content so git status stays clean.
+#
+# To activate: clone to %APPDATA%\Code\User\ and run:
+#   git config core.excludesFile .gitignore
+#
+# Uncomment the block below if you clone to the User profile folder:
+#
+# *
+# !.gitignore
+# !.github/
+# !.github/**
+# !agents/
+# !agents/**
+# !prompts/
+# !prompts/**
+# !crew-manifest.yaml
+# !decisions/
+# !decisions/**
+# !diagrams/
+# !diagrams/**
+# !memories/
+# !memories/**
+# !posts/
+# !posts/**
+# !radar/
+# !radar/**
+# !templates/
+# !templates/**
